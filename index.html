@@ -2,81 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Fasvar.dk</title>
+<title>{{title}}</title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
 <div id="container">
-  <div id="topmost"><a href="#" class="topmostlinks">Register</a> | <a href="#" class="topmostlinks">Login</a> | <a href="#" class="topmostlinks">Help</a></div>
+  <div id="topmost">
+    <a href="#" class="topmostlinks">{{Register}}</a> | 
+    <a href="#" class="topmostlinks">{{Login}}</a> |
+    <a href="#" class="topmostlinks">{{Help}}</a>
+  </div>
   <div id="logonslogans">
-    <table width="579" border="0" align="left" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="left" valign="top"><span class="logotxt">FASVAR.dk</span> <span class="slogan1txt">&nbsp;&nbsp;&nbsp;Sporg en advokat</span></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top"><table width="579" border="0" align="left" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="50" align="left" valign="top">&nbsp;</td>
-            <td align="left" valign="top" class="slogan2area"><span class="slogan2txt">Stil et Sporgsmal til en advokat. Fa et svar sa hurtig som muligt!</span></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top">&nbsp;</td>
-      </tr>
-      <tr>
-        <td height="44" align="left" valign="top" class="sloganbar"><span class="slogan3txt">Advokatene arbejder ogsa for</span> <span class="slogan4txt">KPMG, Deloitte, Ernst &amp; Young</span></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top">&nbsp;</td>
-      </tr>
-    </table>
-    <map name="Map" id="Map">
-      <area shape="rect" coords="2,1,439,48" href="#" />
-    </map>
+    <div id="logo">
+	  <span class="text logotxt">{{logo text}}</span>
+	  <div class="text slogan1 slogan1txt">{{slogan text}}</div>
+	  <div class="text slogan2 slogan2txt">{{slogan2 text}}</div>
+	  <div class="sloganbar">
+	    <div class="text slogan3 slogan3txt">{{slogan3 text}}</div>
+	    <div class="text slogan4 slogan4txt">{{slogan4 text}}</div>
+	  </div>
+    </div>
   </div>
   <div id="searcharea">
-    <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="left" valign="top"><table width="650" border="0" align="left" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="113" height="36" align="left" valign="top" class="tab1">Jura</td>
-            <td width="154" height="36" align="left" valign="top" class="tab2">Andre Categorier <img src="images/fasvar-home-design_30.jpg" width="9" height="9" /></td>
-            <td width="383" align="left" valign="top">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top"><img src="images/fasvar-home-design-2_20.jpg" width="650" height="250" /></td>
-      </tr>
-      <tr>
-        <td align="left" valign="top"><table width="650" border="0" align="left" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="9" align="left" valign="top"><img src="images/fasvar-home-design-2_26.jpg" width="9" height="287" /></td>
-            <td align="left" valign="top" class="searchboxarea"><table width="630" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td height="36" align="left" valign="top">&nbsp;</td>
-              </tr>
-              <tr>
-                <td height="197" align="left" valign="top"><textarea name="textarea" cols="45" rows="5" class="searchbox" id="textarea"></textarea></td>
-              </tr>
-              <tr>
-                <td height="54" align="right" valign="top" class="submitbtn">Submit</td>
-              </tr>
-            </table></td>
-            <td width="11" align="left" valign="top"><img src="images/fasvar-home-design-2_30.jpg" width="11" height="287" /></td>
-          </tr>
-        </table></td>
-      </tr>
-    </table>
+    <div class="tabs">
+      <{{tabs, class:tab, active:current, has_submenu:nested}}>
+    </div>
+    <div class="banner"></div>
+    <div class="content">
+      <div class="contentwrapper">
+        <div class="contentwrapper">
+          <form action="question.php" method="post">
+            <textarea name="question" cols="45" rows="5" class="searchbox" id="question"></textarea>
+            <input type="submit" value="{{Submit}}" class="submit">
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="abovefooter"></div>
   <div id="horline"><img src="images/fasvar-home-design-line_44.gif" width="697" height="9" /></div>
-  <div id="footer">Hvordan FåSvar.dk virker | Mine spørgsmål | Værktøj | Tips en venn | Blive en ekspert | Help<br />
-    Om FåSvar.dk | Vi søger medarbejdere | Betingelser | Ekspert aftalen | Privacy &amp; Security | Partnere | Find en ekspert<br />
-    Lav en kategori<br />
-  © 2012 FåSvar.dk</div>
+  <div id="footer">{{Hvordan FåSvar.dk virker}} | {{Mine spørgsmål}} | {{Værktøj}} | {{Tips en venn}} | {{Blive en ekspert}} | {{Help}}<br />
+    {{Om FåSvar.dk}} | {{Vi søger medarbejdere}} | {{Betingelser}} | {{Ekspert aftalen}} | {{Privacy &amp; Security}} | {{Partnere}} | {{Find en ekspert}}<br />
+    {{Lav en kategori}}<br />
+  <{{copywrite}}></div>
 </div>
 </body>
 </html>

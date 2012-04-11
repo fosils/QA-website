@@ -1,3 +1,7 @@
+/*
+ * Copyright @ Open-org.com, All rights reserved
+ */
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -55,6 +59,7 @@ a.topmostlinks:visited {
 	background-image: url(images/fasvar-home-design-bar_13.jpg);
 	background-repeat: no-repeat;
 	padding-top: 5px;
+	height: 44px;
 }
 .logotxt {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -62,11 +67,18 @@ a.topmostlinks:visited {
 	font-weight: bold;
 	color: #000;
 }
+
+#logo .slogan1{
+  display:inline;
+}
 .slogan1txt {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 20px;
 	font-weight: bold;
 	color: #444444;
+}
+#logo .slogan2{
+  padding: 3px 50px 19px;
 }
 .slogan2txt {
 	font-family: Verdana, Geneva, sans-serif;
@@ -77,6 +89,10 @@ a.topmostlinks:visited {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 16px;
 	color: #333333;
+}
+#logo .slogan3,
+#logo .slogan4{
+  display:inline;
 }
 .slogan4txt {
 	font-family: Arial, Helvetica, sans-serif;
@@ -158,3 +174,39 @@ a.topmostlinks:visited {
 	font-weight: bold;
 	color: #45200d;
 }
+
+.banner{
+  width: 650px;
+  height: 250px;
+  background: url('images/fasvar-home-design-2_20.jpg');
+  }
+  
+/*____________Content__________________*/
+.content{
+  background: url(images/fasvar-home-design_28.jpg) repeat-x left top;
+}
+
+.content .contentwrapper{
+  background: url(images/fasvar-home-design-2_30.jpg) no-repeat right top;
+  padding-right: 11px;
+}
+
+.content .contentwrapper .contentwrapper{
+  background: url(images/fasvar-home-design-2_26.jpg) no-repeat left top;
+  padding: 36px 0 0 9px;
+  height: 287px;
+}
+
+.content input.submit{
+  background: url("images/fasvar-home-redo_44.jpg") no-repeat 0 0;
+  float:right;
+  margin-top: 40px;
+  height: 41px;
+  width: 151px;
+  text-transform: uppercase;
+  color: #45200D;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+}
+  
