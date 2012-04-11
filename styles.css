@@ -1,0 +1,160 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-image: url(images/fasvar-home-design_02.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+#container {
+	width: 800px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+#topmost {
+	text-align: right;
+	vertical-align: bottom;
+	float: left;
+	height: 12px;
+	width: 785px;
+	padding-right: 15px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #5f2a0f;
+	padding-top: 10px;
+}
+a.topmostlinks:link {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #5f2a0f;
+	padding-top: 10px;
+	text-decoration:none;
+}
+a.topmostlinks:visited {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #5f2a0f;
+	padding-top: 10px;
+	text-decoration:none;
+}
+#logonslogans {
+	text-align: left;
+	float: left;
+	height: 141px;
+	width: 783px;
+	padding-top: 35px;
+	padding-bottom: 40px;
+	padding-left: 17px;
+}
+.slogan2area {
+	padding-top: 3px;
+}
+.sloganbar {
+	background-image: url(images/fasvar-home-design-bar_13.jpg);
+	background-repeat: no-repeat;
+	padding-top: 5px;
+}
+.logotxt {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 35px;
+	font-weight: bold;
+	color: #000;
+}
+.slogan1txt {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: #444444;
+}
+.slogan2txt {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	color: #94502d;
+}
+.slogan3txt {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	color: #333333;
+}
+.slogan4txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: bold;
+	color: #94502d;
+}
+
+
+#searcharea {
+	float: left;
+	height: 573px;
+	width: 650px;
+	padding-right: 74px;
+	padding-left: 76px;
+}
+.searchboxarea {
+	background-image: url(images/fasvar-home-design_28.jpg);
+	background-repeat: repeat-x;
+}
+.searchbox {
+	width: 624px;
+	border: 1px solid #000;
+	height: 150px;
+}
+#abovefooter {
+	float: left;
+	height: 77px;
+	width: 800px;
+}
+#horline {
+	text-align: center;
+	float: left;
+	height: 9px;
+	width: 800px;
+}
+#footer {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #333;
+	float: left;
+	width: 680px;
+	padding-top: 20px;
+	padding-right: 60px;
+	padding-bottom: 25px;
+	padding-left: 60px;
+	text-align: center;
+}
+.tab1 {
+	background-image: url(images/fasvar-home-design_17_01.jpg);
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+	height: 26px;
+}
+.tab2 {
+	background-image: url(images/fasvar-home-design_17_02.jpg);
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+	height: 26px;
+}
+.submitbtn {
+	background-image: url(images/fasvar-home-redo_44.jpg);
+	background-repeat: no-repeat;
+	background-position: right top;
+	padding-top: 10px;
+	padding-right: 45px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #45200d;
+}
