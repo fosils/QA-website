@@ -30,13 +30,13 @@ class Question {
       $step = (int) $_REQUEST[STEP_FORM_FIELD];
       switch ($step) {
         case 1:
-          if (processStep1() === FALSE) {
+          if ($this->processStep1() === FALSE) {
             $step = 0;
           }
           break;
 
         case 2:
-          if (processStep2() === FALSE) {
+          if ($this->processStep2() === FALSE) {
             $step = 0;
           }
           break;

@@ -11,6 +11,7 @@ include_once "definition.php";
 include_once "template.php";
 include_once 'language.php';
 include_once 'menu.php';
+include_once 'session.php';
 include_once 'function.php';
 /**
  * Initialise modules and session
@@ -22,6 +23,6 @@ init();
  */
 $_path = menu_alias_to_path($_REQUEST['q']);
 $module = menu_get_module_name($_path);
-$title = menu_get_title($_path);
+$_title = menu_get_title($_path);
 $controller = new $module();
 $controller->dispatch();

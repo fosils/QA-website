@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><${{title}}></title>
+<title><V{{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,11 +31,7 @@
     <div class="content">
       <div class="contentwrapper">
         <div class="contentwrapper">
-          <form action="index.php?q=question" method="post">
-	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="1">
-            <textarea name="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox" id="question"></textarea>
-            <input type="submit" value="{{Submit}}" class="submit">
-          </form>
+	  <div class="information">{{thanking message}}</div>
         </div>
       </div>
     </div>

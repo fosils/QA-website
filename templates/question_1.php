@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><${{title}}></title>
+<title><V{{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -31,9 +31,25 @@
     <div class="content">
       <div class="contentwrapper">
         <div class="contentwrapper">
+	  <div class="information">{{$60 question}}</div>
           <form action="index.php?q=question" method="post">
-	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="1">
-            <textarea name="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox" id="question"></textarea>
+	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="2" />
+	    <input type="hidden" name="<C{{HASH_FORM_FIELD}}>" value="<{{session_get_form_hash}}>" />
+	    <div class="field">
+	      <label for="<C{{EMAIL_FORM_FIELD}}>">{{email label}}
+		<input type="text" name="<C{{EMAIL_FORM_FIELD}}>" id="<C{{EMAIL_FORM_FIELD}}>" />
+	      </label>
+	    </div>
+	    <div class="field">
+	      <label for="<C{{PHONE_FORM_FIELD}}>">{{phone label}}
+		<input type="text" name="<C{{PHONE_FORM_FIELD}}>" id="<C{{PHONE_FORM_FIELD}}>" />
+	      </label>
+	    </div>
+	    <div class="field">
+	      <label for="<C{{NAME_FORM_FIELD}}>">{{name label}}
+		<input type="text" name="<C{{NAME_FORM_FIELD}}>" id="<C{{NAME_FORM_FIELD}}>" />
+	      </label>
+	    </div>
             <input type="submit" value="{{Submit}}" class="submit">
           </form>
         </div>
