@@ -209,4 +209,57 @@ a.topmostlinks:visited {
   font-weight: bold;
   border: none;
 }
+
+ul.menu{
+  margin:0;
+  padding:0;
+}
   
+.menu:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.menu li.tab{
+  float:left;
+  list-style: none;
+  background: url(images/tab_r.png) no-repeat left top;
+  padding-left: 15px;
+  margin-right: 5px;
+}
+
+ul.menu li.active,
+ul.menu li.tab.active,
+ul.menu li.tab:hover{
+  background: url(images/tab_act_r.png) no-repeat left top;
+}
+
+.menu li.tab span{
+  display: block;
+  background: url(images/tab_l.png) no-repeat right top #ffffff;
+  padding-right: 15px;
+  height: 26px;
+  line-height: 26px;
+}
+
+ul.menu li.active span,
+ul.menu li.tab.active span,
+ul.menu li.tab:hover span{
+  background: url(images/tab_act_l.png) no-repeat right top #ffffff;
+}
+
+.menu li.tab a{
+  color: #ffffff;
+  font-size: 11px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu li.nested a{
+  display: block;
+  background: url(images/downarrow.png) no-repeat right center;
+  padding-right: 20px;
+}

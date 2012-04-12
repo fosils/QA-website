@@ -25,14 +25,15 @@
   </div>
   <div id="searcharea">
     <div class="tabs">
-      <{{tabs, class:tab, active:current, has_submenu:nested}}>
+      <{{menu_tab, class:tab, active:acitve, has_submenu:nested}}>
     </div>
     <div class="banner"></div>
     <div class="content">
       <div class="contentwrapper">
         <div class="contentwrapper">
           <form action="question.php" method="post">
-            <textarea name="question" cols="45" rows="5" class="searchbox" id="question"></textarea>
+	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="1">
+            <textarea name="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox" id="question"></textarea>
             <input type="submit" value="{{Submit}}" class="submit">
           </form>
         </div>
@@ -42,7 +43,7 @@
   <div id="abovefooter"></div>
   <div id="horline"><img src="images/fasvar-home-design-line_44.gif" width="697" height="9" /></div>
   <div id="footer">{{How it works}} | {{About}} | {{Become an expert}}<br />
-  <{{copywrite}}></div>
+  <{{copyright}}></div>
 </div>
 </body>
 </html>
