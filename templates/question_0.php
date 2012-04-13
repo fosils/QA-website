@@ -25,7 +25,7 @@
   </div>
   <div id="searcharea">
     <div class="tabs">
-      <{{menu_tab, class:tab, active:acitve, has_submenu:nested}}>
+      <{{menu_tab, class:tab, active:active, has_submenu:nested}}>
     </div>
     <div class="banner"></div>
     <div class="content">
