@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><V{{title}}></title>
+<title><${{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
   <div id="searcharea">
     <div class="tabs">
-      <{{menu_tab, class:tab, active:acitve, has_submenu:nested}}>
+      <{{menu_tab, class:tab, active:active, has_submenu:nested}}>
     </div>
     <div class="banner"></div>
     <div class="content">
