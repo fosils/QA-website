@@ -8,8 +8,8 @@
 <body>
 <div id="container">
   <div id="topmost">
-    <a href="#" class="topmostlinks">{{Register}}</a> | 
-    <a href="#" class="topmostlinks">{{Login}}</a> |
+    <a href="#" class="topmostlinks">{{Register}}</a> 
+    <a href="#" class="topmostlinks">{{Login}}</a>
     <a href="#" class="topmostlinks">{{Help}}</a>
   </div>
   <div id="logonslogans">
@@ -24,9 +24,6 @@
     </div>
   </div>
   <div id="searcharea">
-    <div class="tabs">
-      <{{menu_tab, class:tab, active:active, has_submenu:nested}}>
-    </div>
     <div class="banner"></div>
     <div class="content">
       <div class="contentwrapper">
@@ -42,7 +39,7 @@
   </div>
   <div id="abovefooter"></div>
   <div id="horline"><img src="images/fasvar-home-design-line_44.gif" width="697" height="9" /></div>
-  <div id="footer">{{How it works}} | {{About}} | {{Become an expert}}<br />
+  <div id="footer">{{How it works}} {{About}} {{Become an expert}}<br /><br />
   <{{copyright}}></div>
 </div>
 </body>
