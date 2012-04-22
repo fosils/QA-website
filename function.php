@@ -30,5 +30,5 @@ function get_current_path() {
  * copyright text
  */
 function copyright() {
-  return 'copyright © 202 1' . t('logo text');
+  return 'Copyright 2012 ' . t('logo text');
 }
