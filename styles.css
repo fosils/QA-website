@@ -46,7 +46,7 @@ a.topmostlinks:visited {
 #logonslogans {
 	text-align: left;
 	float: left;
-	height: 141px;
+	height: 122px;
 	width: 783px;
 	padding-top: 35px;
 	padding-bottom: 40px;
@@ -58,12 +58,13 @@ a.topmostlinks:visited {
 .sloganbar {
 	background-image: url(images/fasvar-home-design-bar_13.jpg);
 	background-repeat: no-repeat;
-	padding-top: 5px;
+	padding-top: 10px;
+	padding-left: 80px;
 	height: 44px;
 }
 .logotxt {
 	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 35px;
+	font-size: 43px;
 	font-weight: bold;
 	color: #000;
 }
@@ -73,8 +74,9 @@ a.topmostlinks:visited {
 }
 .slogan1txt {
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: bold;
+	padding-left: 15px;
 	color: #444444;
 }
 #logo .slogan2{
@@ -101,7 +103,6 @@ a.topmostlinks:visited {
 	color: #94502d;
 }
 
-
 #searcharea {
 	float: left;
 	height: 573px;
@@ -112,17 +113,17 @@ a.topmostlinks:visited {
 .searchboxarea {
 	background-image: url(images/fasvar-home-design_28.jpg);
 	background-repeat: repeat-x;
+	
 }
 .searchbox {
 	width: 624px;
 	border: 1px solid #000;
+	border-radius:5px;
 	height: 150px;
+	padding-left: 5px;
+	padding-top: 5px;
 }
-#abovefooter {
-	float: left;
-	height: 77px;
-	width: 800px;
-}
+
 #horline {
 	text-align: center;
 	float: left;
@@ -163,17 +164,7 @@ a.topmostlinks:visited {
 	color: #FFF;
 	height: 26px;
 }
-.submitbtn {
-	background-image: url(images/fasvar-home-redo_44.jpg);
-	background-repeat: no-repeat;
-	background-position: right top;
-	padding-top: 10px;
-	padding-right: 45px;
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 15px;
-	font-weight: bold;
-	color: #45200d;
-}
+
 
 .banner{
   width: 650px;
@@ -200,12 +191,12 @@ a.topmostlinks:visited {
 .content input.submit{
   background: url("images/fasvar-home-redo_44.jpg") no-repeat 0 0;
   float:right;
-  margin-top: 40px;
+  margin-top: 35px;
   height: 41px;
   width: 151px;
-  text-transform: uppercase;
   color: #45200D;
-  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
   font-weight: bold;
   border: none;
 }
