@@ -80,7 +80,7 @@ class Question {
    * send mail to mrdavidandersen
    */
   function email($message, $subject = 'Paid Q&A') {
-    mail('boban@localhost', $subject, $message);
+    mail('mrdavidandersen@gmail.com', $subject, $message);
   }
 
   /**
