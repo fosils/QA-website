@@ -82,18 +82,15 @@ class Question {
         $email = $_REQUEST[EMAIL_FORM_FIELD];
         // $phone = $_REQUEST[PHONE_FORM_FIELD];
         $name = $_REQUEST[NAME_FORM_FIELD];
-        $pay = @$_REQUEST[PAY_READY_FORM_FIELD];
-        if ($pay) {
-          $pay = "Client ready pay $60";
+          $pay = "Client ready to pay $60";
           $content = "
 	  Name : $name
 	  Email : $email
-          Pay : $pay
+    Pay : $pay
 ";
           // Gmail groups the mails by Subject.
           email($content, 'Paid Q&A ' . session_get_form_hash());
-        }
-        return TRUE;
+          return TRUE;
       }
     }
     return FALSE;
