@@ -52,6 +52,7 @@ class Question {
         $GLOBALS['_email'] = $_SESSION['email'];
         $step = "success";
         $this->email('Payment confirmed', 'Paid Q&A ' . session_get_form_hash());
+        unset($_SESSION['name']);
       }
     }
     $template_file = 'question_' . $step;
@@ -79,7 +80,7 @@ class Question {
    * send mail to mrdavidandersen
    */
   function email($message, $subject = 'Paid Q&A') {
-    mail('mrdavidandersen@gmail.com', $subject, $message);
+    mail('boban@localhost', $subject, $message);
   }
 
   /**
