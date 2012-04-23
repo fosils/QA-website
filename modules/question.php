@@ -25,6 +25,7 @@ class Question {
    * despatch function
    */
   function dispatch() {
+    global $_name, $_email, $_question;
     $step = 0;
     if (isset($_REQUEST[STEP_FORM_FIELD])) {
       $step = (int) $_REQUEST[STEP_FORM_FIELD];
@@ -50,8 +51,15 @@ class Question {
       if (isset($_SESSION['name']) && isset($_SESSION['email'])) {
         $GLOBALS['_name'] = $_SESSION['name'];
         $GLOBALS['_email'] = $_SESSION['email'];
+        $GLOBALS['_question'] = $_SESSION['question'];
         $step = "success";
-        $this->email('Payment confirmed', 'Paid Q&A ' . session_get_form_hash());
+        $content = "
+      Status: Payment Confirmed
+      Name : $_name
+      Email : $_email
+      Question : $_question
+";
+        $this->email($content, 'Paid Q&A ' . session_get_form_hash());
         unset($_SESSION['name']);
       }
     }
@@ -92,11 +100,12 @@ class Question {
         $email = $_REQUEST[EMAIL_FORM_FIELD];
         // $phone = $_REQUEST[PHONE_FORM_FIELD];
         $name = $_REQUEST[NAME_FORM_FIELD];
-        $pay = "Client ready to pay $60";
+        $question = $_SESSION['question'];
         $content = "
+      Status: Payment pending
       Name : $name
       Email : $email
-      Pay : $pay
+      Question : $question
 ";
         // Gmail groups the mails by Subject.
         $this->email($content, 'Paid Q&A ' . session_get_form_hash());
