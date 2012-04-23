@@ -11,6 +11,21 @@
 
 class Question {
   /**
+   * @var array
+   */
+  public $deadlines = array(
+    '0' => 'Please Select',
+    '1' => '1 Day',
+    '2' => '2 Days',
+    '3' => '3 Days',
+    '4' => '4 Days',
+    '5' => '5 Days',
+    '10' => '10 Days',
+    '15' => '15 Days',
+    '20' => '20 Days',
+    '25' => '25 Days',
+  );
+  /**
    * menu initialiser for module
    */
   static function menu() {
@@ -25,7 +40,7 @@ class Question {
    * despatch function
    */
   function dispatch() {
-    global $_name, $_email, $_question;
+    global $_name, $_email, $_question, $_deadline;
     $step = 0;
     if (isset($_REQUEST[STEP_FORM_FIELD])) {
       $step = (int) $_REQUEST[STEP_FORM_FIELD];
@@ -47,16 +62,18 @@ class Question {
           break;
       }
     }
-    elseif ($this->step == 'success') {
+    elseif (isset($this->step) && $this->step == 'success') {
       if (isset($_SESSION['name']) && isset($_SESSION['email'])) {
         $GLOBALS['_name'] = $_SESSION['name'];
         $GLOBALS['_email'] = $_SESSION['email'];
         $GLOBALS['_question'] = $_SESSION['question'];
+        $GLOBALS['_deadline'] = $_SESSION['deadline'];
         $step = "success";
         $content = "
       Status: Payment Confirmed
       Name : $_name
       Email : $_email
+      Deadline: $_deadline Day(s)
       Question : $_question
 ";
         $this->email($content, 'Paid Q&A ' . session_get_form_hash());
@@ -65,7 +82,7 @@ class Question {
     }
     $template_file = 'question_' . $step;
     $template = new Template($template_file);
-    echo $template->output();
+    echo $template->output($this);
   }
 
   /**
@@ -100,20 +117,34 @@ class Question {
         $email = $_REQUEST[EMAIL_FORM_FIELD];
         // $phone = $_REQUEST[PHONE_FORM_FIELD];
         $name = $_REQUEST[NAME_FORM_FIELD];
+        $deadline = $_REQUEST[DEADLINE_FORM_FIELD];
         $question = $_SESSION['question'];
         $content = "
       Status: Payment pending
       Name : $name
       Email : $email
+      Deadline: $deadline Day(s)
       Question : $question
 ";
         // Gmail groups the mails by Subject.
         $this->email($content, 'Paid Q&A ' . session_get_form_hash());
         $_SESSION['name'] = $name;
         $_SESSION['email'] = $email;
+        $_SESSION['deadline'] = $deadline;
         return TRUE;
       }
     }
     return FALSE;
+  }
+
+  /**
+   * Creating deadline options
+   */
+  function deadlineOptions() {
+    $ret = array();
+    foreach ($this->deadlines as $key => $value) {
+      $ret[] = '<option value="' . $key . '">' . $value . '</option>';
+    }
+    return implode("\n", $ret);
   }
 }

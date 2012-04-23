@@ -14,6 +14,7 @@ define('EMAIL_FORM_FIELD', 'email');
 define('NAME_FORM_FIELD', 'name');
 define('PHONE_FORM_FIELD', 'phone');
 define('STEP_FORM_FIELD', 'step');
+define('DEADLINE_FORM_FIELD', 'deadline');
 // File and paths.
 define('ROOT_DIRECTORY', dirname(__FILE__));
 define('DS', DIRECTORY_SEPARATOR);

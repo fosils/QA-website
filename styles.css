@@ -262,10 +262,11 @@ ul.menu li.tab:hover span{
 .field {
   width: 300px;
   margin: 0 auto;
-  height: 35px;
+  height: 25px;
   padding-top: 5px;
 }
 
+.field select,
 .field input{
   width: 180px;
   float: right;

@@ -37,7 +37,8 @@
   <C{{STEP_FORM_FIELD}}>:$('#<C{{STEP_FORM_FIELD}}>')[0].value,
   <C{{HASH_FORM_FIELD}}>:$('#<C{{HASH_FORM_FIELD}}>')[0].value,
   <C{{NAME_FORM_FIELD}}>:$('#<C{{NAME_FORM_FIELD}}>')[0].value,
-  <C{{EMAIL_FORM_FIELD}}>:$('#<C{{EMAIL_FORM_FIELD}}>')[0].value
+  <C{{EMAIL_FORM_FIELD}}>:$('#<C{{EMAIL_FORM_FIELD}}>')[0].value,
+  <C{{DEADLINE_FORM_FIELD}}>:$('#<C{{DEADLINE_FORM_FIELD}}>')[0].value,
   });
   })})})(jQuery);
 </script>
@@ -82,6 +83,13 @@
 	    <div class="field">
 	      <label for="<C{{EMAIL_FORM_FIELD}}>">{{email label}}
 		<input type="text" name="<C{{EMAIL_FORM_FIELD}}>" id="<C{{EMAIL_FORM_FIELD}}>" />
+	      </label>
+	    </div>
+	    <div class="field">
+	      <label for="<C{{DEADLINE_FORM_FIELD}}>">{{deadline label}}
+		<select name="<C{{DEADLINE_FORM_FIELD}}>" id="<C{{DEADLINE_FORM_FIELD}}>">
+		  <{{deadlineOptions}}>
+		</select>
 	      </label>
 	    </div>
 <!--

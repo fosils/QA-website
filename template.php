@@ -25,7 +25,8 @@ class Template {
   /**
    * return the output of template
    */
-  function output() {
+  function output($module = NULL) {
+    $this->module = $module;
     $file = TEMPLATE_DIRECTORY . DS . $this->template . TEMPLATE_EXTENTION;
     $content = '';
     if (file_exists($file)) {
@@ -57,8 +58,12 @@ class Template {
     }
     $args = explode(",", $data[1]);
     $function = array_shift($args);
-    if (!function_exists($function)) {
-      return '';
+    $callback = array($this->module, $function);
+    if (!method_exists($this->module, $function)) {
+      $callback = $function;
+      if (!function_exists($function)) {
+        return '';
+      }
     }
     $namedarg = array();
     $nonamearg = array();
@@ -75,7 +80,7 @@ class Template {
     if (count($namedarg) > 0) {
       $nonamearg[] = $namedarg;
     }
-    $ret = call_user_func_array($function, $nonamearg);
+    $ret = call_user_func_array($callback, $nonamearg);
     if ($ret !== FALSE) {
       return $ret;
     }
