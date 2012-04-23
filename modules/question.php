@@ -46,6 +46,14 @@ class Question {
           break;
       }
     }
+    elseif ($this->step == 'success') {
+      if (isset($_SESSION['name']) && isset($_SESSION['email'])) {
+        $GLOBALS['_name'] = $_SESSION['name'];
+        $GLOBALS['_email'] = $_SESSION['email'];
+        $step = "success";
+        $this->email('Payment confirmed', 'Paid Q&A ' . session_get_form_hash());
+      }
+    }
     $template_file = 'question_' . $step;
     $template = new Template($template_file);
     echo $template->output();
@@ -60,6 +68,7 @@ class Question {
       if ($content != '') {
         session_set_form_hash($content);
         $this->email($content, 'Paid Q&A ' . session_get_form_hash());
+        $_SESSION['question'] = $content;
         return TRUE;
       }
     }
@@ -82,15 +91,17 @@ class Question {
         $email = $_REQUEST[EMAIL_FORM_FIELD];
         // $phone = $_REQUEST[PHONE_FORM_FIELD];
         $name = $_REQUEST[NAME_FORM_FIELD];
-          $pay = "Client ready to pay $60";
-          $content = "
-	  Name : $name
-	  Email : $email
-    Pay : $pay
+        $pay = "Client ready to pay $60";
+        $content = "
+      Name : $name
+      Email : $email
+      Pay : $pay
 ";
-          // Gmail groups the mails by Subject.
-          email($content, 'Paid Q&A ' . session_get_form_hash());
-          return TRUE;
+        // Gmail groups the mails by Subject.
+        $this->email($content, 'Paid Q&A ' . session_get_form_hash());
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
+        return TRUE;
       }
     }
     return FALSE;

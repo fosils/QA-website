@@ -25,4 +25,5 @@ $language = array(
   'name label' => 'Name',
   'thanking message' => 'Thank you, <br /> Your question will be forwarded to lawyers once we varify your payment.',
   'ask new question' => '<a href="index.php?q=question"> click here to ask new question</a>',
+  'confirmation message' => 'Thank you for making the payment, Your question is forwarded to lawyer',
 );
