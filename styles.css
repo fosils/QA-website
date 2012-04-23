@@ -188,8 +188,8 @@ a.topmostlinks:visited {
   height: 287px;
 }
 
+.content input.paypal,
 .content input.submit{
-  background: url("images/fasvar-home-redo_44.jpg") no-repeat 0 0;
   float:right;
   margin-top: 35px;
   height: 41px;
@@ -199,6 +199,10 @@ a.topmostlinks:visited {
   font-size: 20px;
   font-weight: bold;
   border: none;
+}
+
+.content input.submit{
+  background: url("images/fasvar-home-redo_44.jpg") no-repeat 0 0;
 }
 
 ul.menu{
@@ -253,4 +257,43 @@ ul.menu li.tab:hover span{
   display: block;
   background: url(images/downarrow.png) no-repeat right center;
   padding-right: 20px;
+}
+
+.field {
+  width: 300px;
+  margin: 0 auto;
+  height: 35px;
+  padding-top: 5px;
+}
+
+.field input{
+  width: 180px;
+  float: right;
+  text-align: left;
+}
+
+.field label{
+  color:#FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: calibri, arial, sans-serif;
+  line-height: 25px;
+}
+
+.information{
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: calibri, arial, sans-serif;
+}
+
+.error{
+  border:2px solid #ff0000;
+}
+
+#error_msg{
+  background:#FFFFFF;
+  color: #FF0000;
+  font-size: 16px;
+  margin-top: -36px;
+  position: absolute;
 }

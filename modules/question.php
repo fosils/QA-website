@@ -80,7 +80,7 @@ class Question {
     if (isset($_REQUEST[HASH_FORM_FIELD])) {
       if (session_set_current_hash($_REQUEST[HASH_FORM_FIELD])) {
         $email = $_REQUEST[EMAIL_FORM_FIELD];
-        $phone = $_REQUEST[PHONE_FORM_FIELD];
+        // $phone = $_REQUEST[PHONE_FORM_FIELD];
         $name = $_REQUEST[NAME_FORM_FIELD];
         $pay = @$_REQUEST[PAY_READY_FORM_FIELD];
         if ($pay) {
@@ -88,7 +88,6 @@ class Question {
           $content = "
 	  Name : $name
 	  Email : $email
-	  Phone : $phone
           Pay : $pay
 ";
           // Gmail groups the mails by Subject.

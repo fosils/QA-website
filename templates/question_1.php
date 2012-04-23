@@ -4,6 +4,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><${{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript" src="media/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" language="javascript" src="media/js/paypal.js"></script>
+<script type="text/javascript">
+  (function ($){
+  $(document).ready(function(){
+  $('#paypalbutton').click(function(e){
+  //validate
+  e.preventDefault();
+  var error = [];
+  if ($('#<C{{NAME_FORM_FIELD}}>')[0].value == '') {
+  error.push("{{Please Enter Your name to continue}}");
+  $('#<C{{NAME_FORM_FIELD}}>').addClass('error');
+  }
+  else{
+  $('#<C{{NAME_FORM_FIELD}}>').removeClass('error');
+  }
+  if (!$('#<C{{EMAIL_FORM_FIELD}}>')[0].value.match(/^[^@]+@[^@\.]+\.[^@]+$/)){
+  error.push("{{Please enter your email address to continue}}");
+  $('#<C{{EMAIL_FORM_FIELD}}>').addClass('error');
+  }
+  else{
+  $('#<C{{EMAIL_FORM_FIELD}}>').removeClass('error');
+  }
+  if(error.length){
+  $('#error_msg').html( error.join('<br />'));
+  return;
+  }
+  $('#paypalform').submit();
+  //ping to server
+  $('#searcharea').load('index.php?q=question #searcharea',{
+  <C{{STEP_FORM_FIELD}}>:$('#<C{{STEP_FORM_FIELD}}>')[0].value,
+  <C{{HASH_FORM_FIELD}}>:$('#<C{{HASH_FORM_FIELD}}>')[0].value,
+  <C{{NAME_FORM_FIELD}}>:$('#<C{{NAME_FORM_FIELD}}>')[0].value,
+  <C{{EMAIL_FORM_FIELD}}>:$('#<C{{EMAIL_FORM_FIELD}}>')[0].value
+  });
+  })})})(jQuery);
+</script>
 </head>
 <body>
 <div id="container">
@@ -31,26 +68,33 @@
     <div class="content">
       <div class="contentwrapper">
         <div class="contentwrapper">
+	  <div id="error_msg"></div>
 	  <div class="information">{{$60 question}}</div>
-          <form action="index.php?q=question" method="post">
-	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="2" />
-	    <input type="hidden" name="<C{{HASH_FORM_FIELD}}>" value="<{{session_get_form_hash}}>" />
-	    <div class="field">
-	      <label for="<C{{EMAIL_FORM_FIELD}}>">{{email label}}
-		<input type="text" name="<C{{EMAIL_FORM_FIELD}}>" id="<C{{EMAIL_FORM_FIELD}}>" />
-	      </label>
-	    </div>
-	    <div class="field">
-	      <label for="<C{{PHONE_FORM_FIELD}}>">{{phone label}}
-		<input type="text" name="<C{{PHONE_FORM_FIELD}}>" id="<C{{PHONE_FORM_FIELD}}>" />
-	      </label>
-	    </div>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypalform" target="_blank">
+<!--          <form action="index.php?q=question" method="post"> -->
+	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" id="<C{{STEP_FORM_FIELD}}>" value="2" />
+	    <input type="hidden" name="<C{{HASH_FORM_FIELD}}>" id="<C{{HASH_FORM_FIELD}}>" value="<{{session_get_form_hash}}>" />
 	    <div class="field">
 	      <label for="<C{{NAME_FORM_FIELD}}>">{{name label}}
 		<input type="text" name="<C{{NAME_FORM_FIELD}}>" id="<C{{NAME_FORM_FIELD}}>" />
 	      </label>
 	    </div>
-            <input type="submit" value="{{Submit}}" class="submit">
+	    <div class="field">
+	      <label for="<C{{EMAIL_FORM_FIELD}}>">{{email label}}
+		<input type="text" name="<C{{EMAIL_FORM_FIELD}}>" id="<C{{EMAIL_FORM_FIELD}}>" />
+	      </label>
+	    </div>
+<!--
+	    <div class="field">
+	      <label for="<C{{PHONE_FORM_FIELD}}>">{{phone label}}
+		<input type="text" name="<C{{PHONE_FORM_FIELD}}>" id="<C{{PHONE_FORM_FIELD}}>" />
+	      </label>
+	    </div>
+-->
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="YDH8D48XA98YE">
+<input id="paypalbutton" class="paypal" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
           </form>
         </div>
       </div>

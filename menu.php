@@ -172,13 +172,13 @@ function menu_tab($args, $menus = NULL) {
     'has_submenu' => '',
   );
   if (empty($menus)) {
-    $menus = array(
+    $menus = array(/*
       '/index' => array(
         'text' => t('q1'),
       ),
       '/question' => array(
         'text' => t('q2'),
-      ),
+	),*/
     );
   }
   $ret = array();
