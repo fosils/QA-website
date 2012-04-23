@@ -281,9 +281,17 @@ ul.menu li.tab:hover span{
 }
 
 .information{
+  padding-bottom:10px;
+}
+.information a,
+.information{
   color: #FFFFFF;
   font-size: 14px;
   font-family: calibri, arial, sans-serif;
+}
+
+.information a{
+  font-weight:bold;
 }
 
 .error{

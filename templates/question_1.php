@@ -33,7 +33,7 @@
   }
   $('#paypalform').submit();
   //ping to server
-  $('#searcharea').load('index.php?q=question #searcharea',{
+  $('#searcharea').load('index.php?q=question #searcharea>div',{
   <C{{STEP_FORM_FIELD}}>:$('#<C{{STEP_FORM_FIELD}}>')[0].value,
   <C{{HASH_FORM_FIELD}}>:$('#<C{{HASH_FORM_FIELD}}>')[0].value,
   <C{{NAME_FORM_FIELD}}>:$('#<C{{NAME_FORM_FIELD}}>')[0].value,

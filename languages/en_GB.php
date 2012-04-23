@@ -23,4 +23,6 @@ $language = array(
   '$60 question' => 'Please deposit <strong>298 DKK</strong> to send your question to lawyers.<br/>Refund are given if your question was not answered.<br/>By clicking Pay Now You accept that Open-Org.com is not responsible for the correctness of the Answers given.',
   'email label' => 'Email',
   'name label' => 'Name',
+  'thanking message' => 'Thank you, <br /> Your question will be forwarded to lawyers once we varify your payment.',
+  'ask new question' => '<a href="index.php?q=question"> click here to ask new question</a>',
 );

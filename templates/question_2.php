@@ -32,6 +32,7 @@
       <div class="contentwrapper">
         <div class="contentwrapper">
 	  <div class="information">{{thanking message}}</div>
+	  <div class="information">{{ask new question}}</div>
         </div>
       </div>
     </div>
