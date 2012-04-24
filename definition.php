@@ -22,4 +22,4 @@ define('TEMPLATE_DIRECTORY', ROOT_DIRECTORY . DS . 'templates');
 define('TEMPLATE_EXTENTION', '.php');
 define('LANGUAGE_DIRECTORY', ROOT_DIRECTORY . DS . 'languages');
 // Language.
-define('LANGUAGE', 'en_GB');
+define('LANGUAGE', 'da_DK');
