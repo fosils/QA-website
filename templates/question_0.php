@@ -4,6 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><${{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
+<script>
+//Used to clear the content of the textarea when that area gets clicked
+function clearContents(element) {
+  element.value = '';
+}
+</script>
 </head>
 <body>
 <div id="container">
@@ -30,7 +36,7 @@
         <div class="contentwrapper">
           <form action="index.php?q=question" method="post">
 	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="1">
-            <textarea name="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox" id="question"></textarea>
+            <textarea name="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox" id="question" onfocus="clearContents(this);">{{write question here}}</textarea>
             <input type="submit" value="{{Submit}}" class="submit">
           </form>
         </div>
