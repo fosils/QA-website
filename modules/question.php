@@ -14,16 +14,15 @@ class Question {
    * @var array
    */
   public $deadlines = array(
-    '0' => 'Please Select',
-    '1' => '1 Day',
-    '2' => '2 Days',
-    '3' => '3 Days',
-    '4' => '4 Days',
-    '5' => '5 Days',
-    '10' => '10 Days',
-    '15' => '15 Days',
-    '20' => '20 Days',
-    '25' => '25 Days',
+    '1' => '1 dag',
+    '2' => '2 dage',
+    '3' => '3 dage',
+    '4' => '4 dage',
+    '5' => '5 dage',
+    '10' => '10 dage',
+    '15' => '15 dage',
+    '20' => '20 dage',
+    '25' => '25 dage',
   );
   /**
    * menu initialiser for module
@@ -143,7 +142,7 @@ class Question {
   function deadlineOptions() {
     $ret = array();
     foreach ($this->deadlines as $key => $value) {
-      $ret[] = '<option value="' . $key . '">' . $value . '</option>';
+      $ret[] = '<option value="' . $key . '"' . (($key == 5) ? ' selected = "true"' : '') . '>' . $value . '</option>';
     }
     return implode("\n", $ret);
   }
