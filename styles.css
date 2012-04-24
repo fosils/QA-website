@@ -113,7 +113,6 @@ a.topmostlinks:visited {
 .searchboxarea {
 	background-image: url(images/fasvar-home-design_28.jpg);
 	background-repeat: repeat-x;
-	
 }
 .searchbox {
 	width: 624px;
@@ -122,6 +121,8 @@ a.topmostlinks:visited {
 	height: 150px;
 	padding-left: 5px;
 	padding-top: 5px;
+	font-size: 14px
+	color: #333333;
 }
 
 #horline {
@@ -266,7 +267,11 @@ ul.menu li.tab:hover span{
   padding-top: 5px;
 }
 
-.field select,
+.field select{
+  width: 186px;
+  float: right;
+  text-align: left;
+}
 .field input{
   width: 180px;
   float: right;
