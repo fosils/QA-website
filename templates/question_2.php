@@ -8,8 +8,8 @@
 <body>
 <div id="container">
   <div id="topmost">
-    <a href="#" class="topmostlinks">{{Register}}</a> | 
-    <a href="#" class="topmostlinks">{{Login}}</a> |
+    <a href="#" class="topmostlinks">{{Register}}</a>
+    <a href="#" class="topmostlinks">{{Login}}</a>
     <a href="#" class="topmostlinks">{{Help}}</a>
   </div>
   <div id="logonslogans">
@@ -39,7 +39,7 @@
   </div>
   <div id="abovefooter"></div>
   <div id="horline"><img src="images/fasvar-home-design-line_44.gif" width="697" height="9" /></div>
-  <div id="footer">{{How it works}} | {{About}} | {{Become an expert}}<br />
+  <div id="footer">{{How it works}} {{About}} {{Become an expert}}<br />
   <{{copyright}}></div>
 </div>
 </body>
