@@ -31,14 +31,18 @@
   $('#error_msg').html( error.join('<br />'));
   return;
   }
-  $('#paypalform').submit();
   //ping to server
-  $('#searcharea').load('index.php?q=question #searcharea>div',{
+  $.ajax({
+    url:'index.php?q=question #searcharea>div',
+	type: 'POST',
+	data:{
   <C{{STEP_FORM_FIELD}}>:$('#<C{{STEP_FORM_FIELD}}>')[0].value,
   <C{{HASH_FORM_FIELD}}>:$('#<C{{HASH_FORM_FIELD}}>')[0].value,
   <C{{NAME_FORM_FIELD}}>:$('#<C{{NAME_FORM_FIELD}}>')[0].value,
   <C{{EMAIL_FORM_FIELD}}>:$('#<C{{EMAIL_FORM_FIELD}}>')[0].value,
   <C{{DEADLINE_FORM_FIELD}}>:$('#<C{{DEADLINE_FORM_FIELD}}>')[0].value,
+  }}).done( function(){
+  $('#paypalform').submit();
   });
   })})})(jQuery);
 </script>
@@ -71,7 +75,7 @@
         <div class="contentwrapper">
 	  <div id="error_msg"></div>
 	  <div class="information">{{$60 question}}</div>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypalform" target="_blank">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypalform">
 <!--          <form action="index.php?q=question" method="post"> -->
 	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" id="<C{{STEP_FORM_FIELD}}>" value="2" />
 	    <input type="hidden" name="<C{{HASH_FORM_FIELD}}>" id="<C{{HASH_FORM_FIELD}}>" value="<{{session_get_form_hash}}>" />

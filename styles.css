@@ -193,8 +193,6 @@ a.topmostlinks:visited {
 .content input.submit{
   float:right;
   margin-top: 35px;
-  height: 41px;
-  width: 151px;
   color: #45200D;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -204,6 +202,8 @@ a.topmostlinks:visited {
 
 .content input.submit{
   background: url("images/fasvar-home-redo_44.jpg") no-repeat 0 0;
+  height: 41px;
+  width: 151px;
 }
 
 ul.menu{
