@@ -16,7 +16,7 @@ function clearContents(element) {
   <div id="topmost">
     <a href="#" class="topmostlinks">{{Register}}</a> 
     <a href="#" class="topmostlinks">{{Login}}</a>
-    <a href="#" class="topmostlinks">{{Help}}</a>
+    <a href="hjaelp.html" class="topmostlinks">{{Help}}</a>
   </div>
   <div id="logonslogans">
     <div id="logo">
