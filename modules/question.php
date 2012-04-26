@@ -18,11 +18,10 @@ class Question {
     '2' => '2 dage',
     '3' => '3 dage',
     '4' => '4 dage',
-    '5' => '5 dage',
-    '10' => '10 dage',
-    '15' => '15 dage',
-    '20' => '20 dage',
-    '25' => '25 dage',
+    '7' => '1 uge',
+    '14' => '2 uger',
+    '21' => '3 uger',
+    '30' => '1 måned',
   );
   /**
    * menu initialiser for module
@@ -142,7 +141,7 @@ class Question {
   function deadlineOptions() {
     $ret = array();
     foreach ($this->deadlines as $key => $value) {
-      $ret[] = '<option value="' . $key . '"' . (($key == 5) ? ' selected = "true"' : '') . '>' . $value . '</option>';
+      $ret[] = '<option value="' . $key . '"' . (($key == 14) ? ' selected = "true"' : '') . '>' . $value . '</option>';
     }
     return implode("\n", $ret);
   }
