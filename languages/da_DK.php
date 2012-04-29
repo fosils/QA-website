@@ -27,5 +27,10 @@ $language = array(
   'thanking message' => 'Thank you, <br /> Your question will be forwarded to the lawyers once we varify your payment.',
   'ask new question' => '<a href="index.php?q=question"> Klik her for at stille et nyt sp&oslash;rgsm&aring;l</a>',
   'confirmation message' => 'Vi har nu modtaget dit depositum og vil nu videresende dit sp&oslash;rgsm&aring;l til advokaterne',
-  'write question here' => 'Venligst skriv dit sp&oslash;rgsm&aring;l til advokaterne her...',
+  'write question here' => 'Venligst skriv dit spørgsmål til advokaterne her...',
+  '@day day' => '@day dag',
+  '@day days' => '@day dage',
+  '@day week' => '@day uge',
+  '@day weeks' => '@day uger',
+  '@day month' => '@day måned',
 );

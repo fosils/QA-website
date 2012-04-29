@@ -13,16 +13,24 @@ class Question {
   /**
    * @var array
    */
-  public $deadlines = array(
-    '1' => '1 dag',
-    '2' => '2 dage',
-    '3' => '3 dage',
-    '4' => '4 dage',
-    '7' => '1 uge',
-    '14' => '2 uger',
-    '21' => '3 uger',
-    '30' => '1 måned',
-  );
+  public $deadlines = array();
+
+  /**
+   * Constructor
+   */
+  function __construct() {
+    $this->deadlines = array(
+      '1' => t('@day day', array('@day' => 1)),
+      '2' => t('@day days', array('@day' => 2)),
+      '3' => t('@day days', array('@day' => 3)),
+      '4' => t('@day days', array('@day' => 4)),
+      '7' => t('@day week', array('@day' => 1)),
+      '14' => t('@day weeks', array('@day' => 2)),
+      '21' => t('@day weeks', array('@day' => 3)),
+      '30' => t('@day month', array('@day' => 1)),
+    );
+  }
+
   /**
    * menu initialiser for module
    */
@@ -41,6 +49,8 @@ class Question {
     global $_name, $_email, $_question, $_deadline;
     $step = 0;
     if (isset($_REQUEST[STEP_FORM_FIELD])) {
+      // Allow browser to cache the form for 10 min.
+      header("Cache-Control: max-age=600\r\n");
       $step = (int) $_REQUEST[STEP_FORM_FIELD];
       switch ($step) {
         case 1:
@@ -61,11 +71,11 @@ class Question {
       }
     }
     elseif (isset($this->step) && $this->step == 'success') {
-      if (isset($_SESSION['name']) && isset($_SESSION['email'])) {
-        $GLOBALS['_name'] = $_SESSION['name'];
-        $GLOBALS['_email'] = $_SESSION['email'];
-        $GLOBALS['_question'] = $_SESSION['question'];
-        $GLOBALS['_deadline'] = $_SESSION['deadline'];
+      $_name = session_get('name');
+      $_email = session_get('email');
+      if (isset($_name) && isset($_email)) {
+        $_question = session_get('question');
+        $_deadline = session_get('deadline');
         $step = "success";
         $content = "
       Status: Payment Confirmed
@@ -75,11 +85,16 @@ class Question {
       Question : $_question
 ";
         $this->email($content, 'Paid Q&A ' . session_get_form_hash());
-        unset($_SESSION['name']);
+        $this->clearSessionData();
       }
     }
     $template_file = 'question_' . $step;
     $template = new Template($template_file);
+    $template->setVariable('question', session_get('question', t('write question here')));
+    $template->setVariable('name', session_get('name', ''));
+    $template->setVariable('email', session_get('email', ''));
+    // Default value of deadline set to 14 days.
+    $template->setVariable('deadline', session_get('deadline', 14));
     echo $template->output($this);
   }
 
@@ -90,9 +105,15 @@ class Question {
     if (isset($_REQUEST[QUESTION_FORM_FIELD])) {
       $content = $_REQUEST[QUESTION_FORM_FIELD];
       if ($content != '') {
-        session_set_form_hash($content);
-        $this->email($content, 'Paid Q&A ' . session_get_form_hash());
-        $_SESSION['question'] = $content;
+        // Do not send email if it send already.
+        if (session_set_form_hash($content)) {
+          $this->email($content, 'Paid Q&A ' . session_get_form_hash());
+          session_set('oldquestion', FALSE);
+          session_set('question', $content);
+        }
+        else {
+          session_set('oldquestion', TRUE);
+        }
         return TRUE;
       }
     }
@@ -116,19 +137,27 @@ class Question {
         // $phone = $_REQUEST[PHONE_FORM_FIELD];
         $name = $_REQUEST[NAME_FORM_FIELD];
         $deadline = $_REQUEST[DEADLINE_FORM_FIELD];
-        $question = $_SESSION['question'];
-        $content = "
+        $question = session_get('question');
+        if (session_get('oldquestion', FALSE) && session_get('name') === $name
+          && session_get('email') === $email && session_get('deadline') === $deadline) {
+          // Do nothing, the information is already send.
+        }
+        else {
+          $content = "
       Status: Payment pending
       Name : $name
       Email : $email
       Deadline: $deadline Day(s)
       Question : $question
 ";
-        // Gmail groups the mails by Subject.
-        $this->email($content, 'Paid Q&A ' . session_get_form_hash());
-        $_SESSION['name'] = $name;
-        $_SESSION['email'] = $email;
-        $_SESSION['deadline'] = $deadline;
+          // Gmail groups the mails by Subject.
+          $this->email($content, 'Paid Q&A ' . session_get_form_hash());
+          session_set('name', $name);
+          session_set('email', $email);
+          session_set('deadline', $deadline);
+          // Do not send email next time user click the pay button.
+          session_set('oldquestion', TRUE);
+        }
         return TRUE;
       }
     }
@@ -138,11 +167,22 @@ class Question {
   /**
    * Creating deadline options
    */
-  function deadlineOptions() {
+  function deadlineOptions($default) {
+    $default = (int) $default;
     $ret = array();
     foreach ($this->deadlines as $key => $value) {
-      $ret[] = '<option value="' . $key . '"' . (($key == 14) ? ' selected = "true"' : '') . '>' . $value . '</option>';
+      $ret[] = '<option value="' . $key . '"' . (($key == $default) ? ' selected = "true"' : '') . '>' . $value . '</option>';
     }
     return implode("\n", $ret);
+  }
+
+  /**
+   * Clear session data
+   */
+  fUnction clearSessionData() {
+    session_set('name', NULL);
+    session_set('email', NULL);
+    session_set('question', NULL);
+    session_set('deadline', NULL);
   }
 }

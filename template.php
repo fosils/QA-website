@@ -34,12 +34,12 @@ class Template {
       ob_start();
       include $file;
       $content = ob_get_clean();
+      // Replace defined variables.
+      $content = preg_replace_callback('/<\${{([a-z_]+)}}>/', array($this, 'replaceVariable'), $content);
       // Replace function mappings.
       $content = preg_replace_callback('/<{{([a-zA-Z0-9,:_ ]+)}}>/', array($this, 'replaceFunction'), $content);
       // Replace defined constants.
       $content = preg_replace_callback('/<C{{([A-Z_]+)}}>/', array($this, 'replaceConstant'), $content);
-      // Replace defined variables.
-      $content = preg_replace_callback('/<\${{([a-z_]+)}}>/', array($this, 'replaceVariable'), $content);
       // Replace the translation strings.
       $content = preg_replace_callback('/{{([\$a-zA-Z0-9 ]+)}}/', array($this, 'translate'), $content);
     }
@@ -101,12 +101,27 @@ class Template {
    * Callback for handling variables
    */
   function replaceVariable($data) {
-    if (isset($data[1]) && array_key_exists('_' . $data[1], $GLOBALS)) {
-      if (is_string($GLOBALS['_' . $data[1]])) {
-        return $GLOBALS['_' . $data[1]];
+    if (isset($data[1])) {
+      if (array_key_exists($data[1], $this->variables)) {
+        return $this->variables[$data[1]];
+      }
+      if (array_key_exists('_' . $data[1], $GLOBALS)) {
+        if (is_string($GLOBALS['_' . $data[1]])) {
+          return $GLOBALS['_' . $data[1]];
+        }
       }
     }
     return '';
+  }
+
+  /**
+   * Set template Variable
+   */
+  function setVariable($name, $value) {
+    if (!isset($this->variables)) {
+      $this->variables = array();
+    }
+    $this->variables[$name] = $value;
   }
 
   /**

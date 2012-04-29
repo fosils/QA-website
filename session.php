@@ -5,15 +5,26 @@
  */
 
 /**
- * get form
+ * get form hash
+ *
+ * @param string $content
+ *   content for generating the hash.
+ *
+ * @return boolean
+ *   TRUE for new content, and FALSE for existing content
  */
 function session_set_form_hash($content) {
-  $hash = md5($content);
+  $hash = md5(session_id() . $content);
+  $ret = TRUE;
   if (!isset($_SESSION['QA'])) {
     $_SESSION['QA'] = array('available' => array());
   }
+  elseif ($_SESSION['QA']['current'] == $hash) {
+    $ret = FALSE;
+  }
   $_SESSION['QA']['current'] = $hash;
   $_SESSION['QA']['available'][$hash] = 1;
+  return $ret;
 }
 
 /**
@@ -32,4 +43,21 @@ function session_set_current_hash($hash) {
     return TRUE;
   }
   return FALSE;
+}
+
+/**
+ * set variable
+ */
+function session_set($name, $value) {
+  $_SESSION[$name] = $value;
+}
+
+/**
+ * get variable
+ */
+function session_get($name, $default = NULL) {
+  if (isset($_SESSION[$name])) {
+    return $_SESSION[$name];
+  }
+  return $default;
 }

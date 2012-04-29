@@ -81,18 +81,18 @@
 	    <input type="hidden" name="<C{{HASH_FORM_FIELD}}>" id="<C{{HASH_FORM_FIELD}}>" value="<{{session_get_form_hash}}>" />
 	    <div class="field">
 	      <label for="<C{{NAME_FORM_FIELD}}>">{{name label}}
-		<input type="text" name="<C{{NAME_FORM_FIELD}}>" id="<C{{NAME_FORM_FIELD}}>" />
+		<input type="text" name="<C{{NAME_FORM_FIELD}}>" id="<C{{NAME_FORM_FIELD}}>" value="<${{name}}>"/>
 	      </label>
 	    </div>
 	    <div class="field">
 	      <label for="<C{{EMAIL_FORM_FIELD}}>">{{email label}}
-		<input type="text" name="<C{{EMAIL_FORM_FIELD}}>" id="<C{{EMAIL_FORM_FIELD}}>" />
+		<input type="text" name="<C{{EMAIL_FORM_FIELD}}>" id="<C{{EMAIL_FORM_FIELD}}>" value="<${{email}}>"/>
 	      </label>
 	    </div>
 	    <div class="field">
 	      <label for="<C{{DEADLINE_FORM_FIELD}}>">{{deadline label}}
 		<select name="<C{{DEADLINE_FORM_FIELD}}>" id="<C{{DEADLINE_FORM_FIELD}}>">
-		  <{{deadlineOptions}}>
+		  <{{deadlineOptions,<${{deadline}}>}}>
 		</select>
 	      </label>
 	    </div>

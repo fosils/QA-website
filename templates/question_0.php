@@ -4,11 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><${{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript" src="media/js/jquery-1.7.2.min.js"></script>
 <script>
 //Used to clear the content of the textarea when that area gets clicked
-function clearContents(element) {
-  element.value = '';
-}
+(function($,val){
+  $(document).ready(function(){
+    $('#<C{{QUESTION_FORM_FIELD}}>').focus(function(){
+      if(this.value == val){
+        this.value = '';
+      }
+    }).focusout(function(){
+      if(this.value == ''){
+        this.value = val;
+      }
+    });
+  });
+})(jQuery, '{{write question here}}');
 </script>
 </head>
 <body>
@@ -36,7 +47,7 @@ function clearContents(element) {
         <div class="contentwrapper">
           <form action="index.php?q=question" method="post">
 	    <input type="hidden" name="<C{{STEP_FORM_FIELD}}>" value="1">
-            <textarea name="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox" id="question" onfocus="clearContents(this);">{{write question here}}</textarea>
+	      <textarea name="<C{{QUESTION_FORM_FIELD}}>" id="<C{{QUESTION_FORM_FIELD}}>" cols="45" rows="5" class="searchbox"><${{question}}></textarea>
             <input type="submit" value="{{Submit}}" class="submit">
           </form>
         </div>
