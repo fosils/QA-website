@@ -62,7 +62,7 @@ Question :
   static function menu() {
     return array(
       '/question' => array(
-        'title' => t('home'),
+        'title' => t('{{page title}}'),
       ),
     );
   }
