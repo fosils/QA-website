@@ -47,7 +47,6 @@
   });
   })})})(jQuery);
 </script>
-</head>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -61,6 +60,7 @@
   })();
 
 </script>
+</head>
 <body>
 <div id="container">
   <div id="topmost">
