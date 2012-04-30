@@ -50,9 +50,9 @@ Question :
       '30' => t('@day month', array('@day' => 1)),
     );
     $this->complexity = array(
-      'easy' => t('Easy question : 45$'),
-      'complex' => t('Complex question: 95$'),
-      'advice' => t('Advice needed: 195$'),
+      'easy' => t('{{combobox simple question}}'),
+      'complex' => t('{{combobox question}}'),
+      'advice' => t('{{combobox complex question}}'),
     );
   }
 
