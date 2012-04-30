@@ -115,7 +115,7 @@ Question :
     $template->setVariable('name', session_get('name', ''));
     $template->setVariable('email', session_get('email', ''));
     // Default value of deadline set to 14 days.
-    $template->setVariable('deadline', session_get('deadline', 14));
+    $template->setVariable('deadline', session_get('deadline', 2));
     echo $template->output($this);
   }
 
