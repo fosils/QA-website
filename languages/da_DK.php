@@ -36,6 +36,6 @@ $language = array(
   '@day weeks' => '@day uger',
   '@day month' => '@day måned',
   'combobox simple question' => 'Nemt spørgsmål: 295 kr.',
-  'combobox question' => 'Spørgsmål: 495 kr.',
+  'combobox question' => 'Sværere spørgsmål: 495 kr.',
   'combobox complex question' => 'Komplekst spørgsmål: 995 kr.',
 );
