@@ -27,12 +27,11 @@ class Template {
    */
   function output($module = NULL) {
     $this->module = $module;
-    $file = TEMPLATE_DIRECTORY . DS . $this->template . TEMPLATE_EXTENTION;
-    $content = '';
-    if (file_exists($file)) {
+    $this->file = TEMPLATE_DIRECTORY . DS . $this->template . TEMPLATE_EXTENTION;
+    if (file_exists($this->file)) {
       // Allow any php codes in template to execute.
       ob_start();
-      include $file;
+      include $this->file;
       $content = ob_get_clean();
       // Replace defined variables.
       $content = preg_replace_callback('/<\${{([a-z_]+)}}>/', array($this, 'replaceVariable'), $content);
@@ -44,7 +43,7 @@ class Template {
       $content = preg_replace_callback('/{{([\$a-zA-Z0-9 ]+)}}/', array($this, 'translate'), $content);
     }
     else {
-      throw new Exception("The file " . $file . " Not fount");
+      throw new Exception("The file " . $this->file . " Not fount");
     }
     return $content;
   }
