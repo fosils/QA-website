@@ -8,6 +8,7 @@
  */
 
 $language = array(
+  'page title' => 'AnswerNow.com - Ask a lawyer',
   'Register' => 'Register',
   'Login' => 'Login',
   'Help' => 'Help',
