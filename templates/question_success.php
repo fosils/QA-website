@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><${{title}}></title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
-</head>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -18,6 +17,7 @@
   })();
 
 </script>
+</head>
 <body>
 <div id="container">
   <div id="topmost">
