@@ -175,16 +175,15 @@ a.topmostlinks:visited {
   
 /*____________Content__________________*/
 .content{
-  background: url(images/fasvar-home-design_28.jpg) repeat-x left top;
+  background: url(images/fasvar-home-design_28.jpg) repeat-x left top #72422B;
+  border-radius: 0 0 13px 13px;
 }
 
 .content .contentwrapper{
-  background: url(images/fasvar-home-design-2_30.jpg) no-repeat right top;
   padding-right: 11px;
 }
 
 .content .contentwrapper .contentwrapper{
-  background: url(images/fasvar-home-design-2_26.jpg) no-repeat left top;
   padding: 36px 0 0 9px;
   height: 287px;
 }

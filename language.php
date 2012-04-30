@@ -30,8 +30,8 @@ function t($word, $data = array()) {
    *  translation file.
    * but now it allow to put some arbitrary value to translated string
    */
-  foreach ($data as $key => $value) {
-    $ret = str_replace($key, $value, $ret);
+  if (count($data) > 0) {
+    return str_replace(array_keys($data), array_values($data), $ret);
   }
   return $ret;
 }

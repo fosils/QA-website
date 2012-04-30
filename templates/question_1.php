@@ -41,6 +41,7 @@
   <C{{NAME_FORM_FIELD}}>:$('#<C{{NAME_FORM_FIELD}}>')[0].value,
   <C{{EMAIL_FORM_FIELD}}>:$('#<C{{EMAIL_FORM_FIELD}}>')[0].value,
   <C{{DEADLINE_FORM_FIELD}}>:$('#<C{{DEADLINE_FORM_FIELD}}>')[0].value,
+  <C{{COMPLEXITY_FORM_FIELD}}>:$('#<C{{COMPLEXITY_FORM_FIELD}}>')[0].value,
   }}).done( function(){
   $('#paypalform').submit();
   });
@@ -109,13 +110,13 @@
 		</select>
 	      </label>
 	    </div>
-<!--
 	    <div class="field">
-	      <label for="<C{{PHONE_FORM_FIELD}}>">{{phone label}}
-		<input type="text" name="<C{{PHONE_FORM_FIELD}}>" id="<C{{PHONE_FORM_FIELD}}>" />
+	      <label for="<C{{COMPLEXITY_FORM_FIELD}}>">{{complexity label}}
+		<select name="<C{{COMPLEXITY_FORM_FIELD}}>" id="<C{{COMPLEXITY_FORM_FIELD}}>">
+		  <{{complexityOptions,<${{complexity}}>}}>
+		</select>
 	      </label>
 	    </div>
--->
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="ZFBNEE52VTDZN">
 <input id="paypalbutton" class="paypal" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">

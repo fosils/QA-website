@@ -24,6 +24,7 @@ $language = array(
   'email label' => 'Email:',
   'name label' => 'Name:',
   'deadline label' => 'Svarfrist:',
+  'complexity label' => 'complexity:',
   'thanking message' => 'Thank you, <br /> Your question will be forwarded to the lawyers once we varify your payment.',
   'ask new question' => '<a href="index.php?q=question"> Klik her for at stille et nyt sp&oslash;rgsm&aring;l</a>',
   'confirmation message' => 'Vi har nu modtaget dit depositum og vil nu videresende dit sp&oslash;rgsm&aring;l til advokaterne',
