@@ -8,7 +8,14 @@
 <script type="text/javascript" language="javascript" src="media/js/paypal.js"></script>
 <script type="text/javascript">
   (function ($){
+    var button = {easy:'KCNK6EQQFCY4S', 'complex':'4BR66UTVC4EGG', 'advice':'DHMCSSJNBPJXA'};
   $(document).ready(function(){
+    (function(id){
+      id.change(function(){
+        $('#hosted_button_id').val(button[this.value]);
+      });
+      $('#hosted_button_id').val(button[id.val()]);
+    })($('#<C{{COMPLEXITY_FORM_FIELD}}>'));
   $('#paypalbutton').click(function(e){
   //validate
   e.preventDefault();
@@ -118,7 +125,7 @@
 	      </label>
 	    </div>
 <input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="ZFBNEE52VTDZN">
+<input type="hidden" name="hosted_button_id" id="hosted_button_id" value="">
 <input id="paypalbutton" class="paypal" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
           </form>
