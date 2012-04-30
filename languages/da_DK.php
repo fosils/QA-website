@@ -8,6 +8,7 @@
  */
 
 $language = array(
+  'page title' => 'FåSvar.dk - Sp&oslash;rg en advokat',
   'Register' => '',
   'Login' => '',
   'Help' => 'Hj&aelig;lp',
