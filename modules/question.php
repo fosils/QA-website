@@ -50,9 +50,9 @@ Question :
       '30' => t('@day month', array('@day' => 1)),
     );
     $this->complexity = array(
-      'easy' => t('{{combobox simple question}}'),
-      'complex' => t('{{combobox question}}'),
-      'advice' => t('{{combobox complex question}}'),
+      'easy' => t('combobox simple question'),
+      'complex' => t('combobox question'),
+      'advice' => t('combobox complex question'),
     );
   }
 
@@ -62,7 +62,7 @@ Question :
   static function menu() {
     return array(
       '/question' => array(
-        'title' => t('{{page title}}'),
+        'title' => t('page title'),
       ),
     );
   }
