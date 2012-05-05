@@ -3,7 +3,8 @@
  * @file
  * define constants
  *
- * copyright @ Open-org.com all rights reserved.
+ * @author
+ * @copyright Open-org.com, All rights reserved
  */
 
 define('OPEN_ORG_INIT', 1);
@@ -17,10 +18,14 @@ define('STEP_FORM_FIELD', 'step');
 define('DEADLINE_FORM_FIELD', 'deadline');
 define('COMPLEXITY_FORM_FIELD', 'complexity');
 // File and paths.
-define('ROOT_DIRECTORY', dirname(__FILE__));
+define('SITE_ROOT', dirname(__FILE__));
 define('DS', DIRECTORY_SEPARATOR);
-define('TEMPLATE_DIRECTORY', ROOT_DIRECTORY . DS . 'templates');
+define('MODULE_PATH', SITE_ROOT . DS . 'modules');
+define('MODULE_URL', 'modules');
+define('TEMPLATE_PATH', SITE_ROOT . DS . 'templates');
+define('TEMPLATE_URL', 'templates');
 define('TEMPLATE_EXTENTION', '.php');
-define('LANGUAGE_DIRECTORY', ROOT_DIRECTORY . DS . 'languages');
+define('LANGUAGE_DIRECTORY', SITE_ROOT . DS . 'languages');
+define('MODULE_EXTENSION', '.php');
 // Language.
 define('LANGUAGE', 'da_DK');

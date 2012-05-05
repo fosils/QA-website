@@ -3,26 +3,22 @@
  * @file
  * The entry point
  *
- * Copyright @ Open-org.com, all rights reserved
+ * @author
+ * @copyright Open-org.com, All rights reserved
  *
  */
 
+error_reporting(E_ALL);
+
 include_once "definition.php";
+include_once 'conf/config.php';
 include_once "template.php";
 include_once 'language.php';
-include_once 'menu.php';
-include_once 'session.php';
-include_once 'function.php';
+include_once 'modules/module.php';
+include_once 'templates/theme.php';
+
+$config = Config::getInstance();
 /**
- * Initialise modules and session
- * see @file function.php
+ * Process
  */
-init();
-/**
- * Get the request data
- */
-$_path = menu_alias_to_path($_REQUEST['q']);
-$module = menu_get_module_name($_path);
-$_title = menu_get_title($_path);
-$controller = new $module();
-$controller->dispatch();
+$config->propogateEvent('init', array());

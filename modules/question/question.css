@@ -1,0 +1,315 @@
+/*
+ * Copyright @ Open-org.com, All rights reserved
+ */
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-image: url(images/fasvar-home-design_02.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+#container {
+	width: 800px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+#topmost {
+	text-align: right;
+	vertical-align: bottom;
+	float: left;
+	height: 12px;
+	width: 785px;
+	padding-right: 15px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #5f2a0f;
+	padding-top: 10px;
+}
+a.topmostlinks:link {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #5f2a0f;
+	padding-top: 10px;
+	text-decoration:none;
+}
+a.topmostlinks:visited {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #5f2a0f;
+	padding-top: 10px;
+	text-decoration:none;
+}
+#logonslogans {
+	text-align: left;
+	float: left;
+	height: 122px;
+	width: 783px;
+	padding-top: 35px;
+	padding-bottom: 40px;
+	padding-left: 17px;
+}
+.slogan2area {
+	padding-top: 3px;
+}
+.sloganbar {
+	background-image: url(images/fasvar-home-design-bar_13.jpg);
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-left: 80px;
+	height: 44px;
+}
+.logotxt {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 43px;
+	font-weight: bold;
+	color: #000;
+}
+
+#logo .slogan1{
+  display:inline;
+}
+.slogan1txt {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 15px;
+	color: #444444;
+}
+#logo .slogan2{
+  padding: 3px 50px 19px;
+}
+.slogan2txt {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	color: #94502d;
+}
+.slogan3txt {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	color: #333333;
+}
+#logo .slogan3,
+#logo .slogan4{
+  display:inline;
+}
+.slogan4txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: bold;
+	color: #94502d;
+}
+
+#searcharea {
+	float: left;
+	height: 573px;
+	width: 650px;
+	padding-right: 74px;
+	padding-left: 76px;
+}
+.searchboxarea {
+	background-image: url(images/fasvar-home-design_28.jpg);
+	background-repeat: repeat-x;
+}
+.searchbox {
+	width: 624px;
+	border: 1px solid #000;
+	border-radius:5px;
+	height: 150px;
+	padding-left: 5px;
+	padding-top: 5px;
+	font-size: 14px
+	color: #333333;
+}
+
+#horline {
+	text-align: center;
+	float: left;
+	height: 9px;
+	width: 800px;
+}
+#footer {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #333;
+	float: left;
+	width: 680px;
+	padding-top: 20px;
+	padding-right: 60px;
+	padding-bottom: 25px;
+	padding-left: 60px;
+	text-align: center;
+}
+.tab1 {
+	background-image: url(images/fasvar-home-design_17_01.jpg);
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+	height: 26px;
+}
+.tab2 {
+	background-image: url(images/fasvar-home-design_17_02.jpg);
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFF;
+	height: 26px;
+}
+
+
+.banner{
+  width: 650px;
+  height: 250px;
+  background: url('images/fasvar-home-design-2_20.jpg');
+  }
+  
+/*____________Content__________________*/
+.content{
+  background: url(images/fasvar-home-design_28.jpg) repeat-x left top #72422B;
+  border-radius: 0 0 13px 13px;
+}
+
+.content .contentwrapper{
+  padding-right: 11px;
+}
+
+.content .contentwrapper .contentwrapper{
+  padding: 26px 0 0 9px;
+  height: 287px;
+}
+
+.content input.paypal,
+.content input.submit{
+  float:right;
+  margin-top: 18px;
+  margin-right: 10px;
+  color: #45200D;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+}
+
+.content input.submit{
+  background: url("images/fasvar-home-redo_44.jpg") no-repeat 0 0;
+  height: 41px;
+  width: 151px;
+}
+
+ul.menu{
+  margin:0;
+  padding:0;
+}
+  
+.menu:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.menu li.tab{
+  float:left;
+  list-style: none;
+  background: url(images/tab_r.png) no-repeat left top;
+  padding-left: 15px;
+  margin-right: 5px;
+}
+
+ul.menu li.active,
+ul.menu li.tab.active,
+ul.menu li.tab:hover{
+  background: url(images/tab_act_r.png) no-repeat left top;
+}
+
+.menu li.tab span{
+  display: block;
+  background: url(images/tab_l.png) no-repeat right top #ffffff;
+  padding-right: 15px;
+  height: 26px;
+  line-height: 26px;
+}
+
+ul.menu li.active span,
+ul.menu li.tab.active span,
+ul.menu li.tab:hover span{
+  background: url(images/tab_act_l.png) no-repeat right top #ffffff;
+}
+
+.menu li.tab a{
+  color: #ffffff;
+  font-size: 11px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu li.nested a{
+  display: block;
+  background: url(images/downarrow.png) no-repeat right center;
+  padding-right: 20px;
+}
+
+.field {
+  width: 300px;
+  margin-left: 10px;
+  height: 25px;
+  padding-top: 5px;
+}
+
+.field select{
+  width: 190px;
+  float: right;
+  text-align: left;
+}
+.field input{
+  width: 185px;
+  float: right;
+  text-align: left;
+}
+
+.field label{
+  color:#FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: calibri, arial, sans-serif;
+  line-height: 25px;
+}
+
+.information{
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom:10px;
+}
+.information a,
+.information{
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: calibri, arial, sans-serif;
+}
+
+.information a{
+  font-weight:bold;
+}
+
+.error{
+  border:2px solid #ff0000;
+}
+
+#error_msg{
+  background:#FFFFFF;
+  color: #FF0000;
+  font-size: 16px;
+  margin-top: -36px;
+  position: absolute;
+}

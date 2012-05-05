@@ -3,23 +3,238 @@
  * @file
  * Template class for QA website
  *
- * Copyright @ Open-org.com, All rights reserved
- * Created as per the task on Open-org.com
- *  http://forum.open-org.com/q10/
+ * @author
+ * @copyright Open-org.com, All rights reserved
  */
 
-defined('OPEN_ORG_INIT') OR die('RESTRICTED ACCESS');
-
 class Template {
-
+  /**
+   * @var
+   */
+  protected $theme;
+  protected $conf;
+  protected $loaded = FALSE;
+  protected $blocks = array();
+  protected $blockdata = array();
+  protected $title = '';
   /**
    * Constructor
    *
-   * @param string $template
-   *   The template file name
+   * @param \Config $conf
+   *   configuration Object.
+   * @param string $theme
+   *   The name of theme.
    */
-  function __construct($template) {
-    $this->template = $template;
+  function __construct($conf, $theme) {
+    $this->theme = $theme;
+    $this->conf = $conf;
+  }
+
+  /**
+   * set Current theme
+   */
+  function setTheme($theme) {
+    if ($this->loaded) {
+      return FALSE;
+    }
+    $this->theme = $theme;
+  }
+
+  /**
+   * Load theme
+   */
+  function load() {
+    if (!$this->loaded) {
+      if (!($this->loaded = $this->conf->loadTheme($this->theme))) {
+        // Error exception.
+      }
+    }
+    return TRUE;
+  }
+
+  /**
+   * The theming function
+   * theam allow either theme function, html-php file defined in theme folder,
+   *  module function or html-php file defined in module to generate the output.
+   */
+  function theme($module, $template, $variables) {
+    if (!$this->loaded) {
+      $this->load();
+    }
+    // Final Override: search for theme file in theme folder.
+    $themepath = $this->getThemePath();
+    $themefile = $this->themeFile($module, $template, $themepath);
+    if (file_exists($themefile)) {
+      return $this->loadThemeFile($themefile, $variables);
+    }
+    // Second Override:  search for theme override of module implementation.
+    $theme = $this->theme;
+    $callable = array($theme, $this->themeFunction($module, $template));
+    if (is_callable($callable)) {
+      return call_user_func_array($callable, array($variables));
+    }
+    // First Override:  search for module defined theme file.
+    $module_path = \Module::modulePath($module);
+    $module_theme_file = $this->moduleThemeFile($template, $module_path);
+    if (file_exists($module_theme_file)) {
+      return $this->loadThemeFile($module_theme_file, $variables);
+    }
+    // Default: search for module defined theme function.
+    $object = $this->conf->module($module);
+    $callable = array($object, $this->moduleThemeFunction($template));
+    if (is_callable($callable)) {
+      return call_user_func_array($callable, array($variables));
+    }
+    return '';
+  }
+
+  /**
+   * Get the theme path
+   */
+  function getThemePath() {
+    $theme = $this->theme;
+    $split = explode('\\', $theme);
+    $dir = TEMPLATE_PATH . DS;
+    foreach ($split as $name) {
+      $name = strtolower($name);
+      $dir .= $name . DS;
+    }
+    return $dir;
+  }
+
+  /**
+   * get the theme url
+   */
+  function getThemeUrl() {
+    $theme = $this->theme;
+    $split = explode('\\', $theme);
+    $path = TEMPLATE_URL;
+    foreach ($split as $name) {
+      $name = strtolower($name);
+      $path .= '/' . $name;
+    }
+    return $path . '/';
+  }
+
+  /**
+   * Get the theme file
+   */
+  function themeFile($module, $template, $path) {
+    return $path . strtolower($module) . DS . $template . TEMPLATE_EXTENTION;
+  }
+
+  /**
+   * Module defined theme file
+   */
+  function moduleThemeFile($template, $path) {
+    return $path . 'theme' . DS . $template . TEMPLATE_EXTENTION;
+  }
+
+  /**
+   * theme function
+   */
+  function themeFunction($module, $template) {
+    return strtolower($module) . ucfirst($template);
+  }
+
+  /**
+   * Module defined theme function
+   */
+  function moduleThemeFunction($template) {
+    return 'theme' . ucfirst($template);
+  }
+
+  /**
+   * Add block data to template
+   */
+  function addBlock($name, $data) {
+    if (!$this->loaded) {
+      $this->load();
+    }
+    if (empty($this->blocks)) {
+      $this->blocks = $this->conf->theme->blocks();
+      foreach ($this->blocks as $block => $status) {
+        if ($status) {
+          $this->blockdata[$block] = array();
+        }
+      }
+    }
+    if (array_key_exists($name, $this->blockdata)) {
+      $this->blockdata[$name][] = $data;
+      return TRUE;
+    }
+    return FALSE;
+  }
+
+  /**
+   * Set Title
+   */
+  function setTitle($title) {
+    $this->title = $title;
+  }
+
+  /**
+   * Loads theme classes
+   */
+  static function loadClass($names = array()) {
+    if (count($names) > 0) {
+      $dir = TEMPLATE_PATH . DS ;
+      foreach ($names as $name) {
+        $name = strtolower($name);
+        $dir .= $name . DS;
+      }
+      $file = $dir . 'theme' . TEMPLATE_EXTENTION;
+      if (file_exists($file)) {
+        include_once $file;
+      }
+    }
+  }
+
+  /**
+   * dispatch function
+   */
+  function dispatch() {
+    return $this->conf->theme->page($this->blockdata);
+  }
+
+  /**
+   * Add script declarations
+   */
+  function addScript($script) {
+    $this->addBlock('htmlscript', $script);
+  }
+
+  /**
+   * Add style declarations
+   */
+  function addStyle($style) {
+    return $this->addBlock('htmlstyle', $style);
+  }
+
+  /**
+   * Add script url
+   */
+  function addScriptTag($url, $module = NULL, $type = "text/javascript", $language = "javascript") {
+    return $this->addBlock('script', array($url, $module, $type, $language));
+  }
+
+  /**
+   * Add stylesheet
+   */
+  function addStylesheet($url, $module = NULL, $type = "text/css") {
+    return $this->addBlock('stylesheet', array($url, $module, $type));
+  }
+
+  /**
+   * Load the theme file so that it will get the template as $this
+   */
+  function loadThemeFile($__template_vars_path, $__template_vars_variables) {
+    foreach ($__template_vars_variables as $__template_prop_name => $__template_prop_value) {
+      ${$__template_prop_name} = $__template_prop_value;
+    }
+    ob_start();
+    include $__template_vars_path;
+    return ob_get_clean();
   }
 
   /**

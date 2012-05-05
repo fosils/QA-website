@@ -1,9 +1,10 @@
 <?php
 /**
  * @file
- * define language
+ * define language and translation functions.
  *
- * copyright @ Open-org.com all rights reserved.
+ * @author
+ * @copyright Open-org.com, All rights reserved
  */
 
 /**
